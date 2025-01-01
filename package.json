@@ -1,0 +1,21 @@
+{
+  "name": "solveit",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20"
+  }
+}
