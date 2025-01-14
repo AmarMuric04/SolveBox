@@ -832,6 +832,10 @@ video {
   top: 100%;
 }
 
+.top-40{
+  top: 10rem;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -1152,6 +1156,10 @@ video {
   min-height: 10rem;
 }
 
+.min-h-\[40rem\]{
+  min-height: 40rem;
+}
+
 .w-1\/2{
   width: 50%;
 }
@@ -1417,6 +1425,10 @@ video {
   overflow-x: scroll;
 }
 
+.overflow-y-scroll{
+  overflow-y: scroll;
+}
+
 .truncate{
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1601,6 +1613,11 @@ video {
 .bg-purple-900{
   --tw-bg-opacity: 1;
   background-color: rgb(88 28 135 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-500{
@@ -3403,6 +3420,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 1280px){
+  .xl\:absolute{
+    position: absolute;
+  }
+
   .xl\:bottom-40{
     bottom: 10rem;
   }
