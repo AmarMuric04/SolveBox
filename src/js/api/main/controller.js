@@ -18,11 +18,15 @@ export const Controller = {
     });
 
     try {
-      const enAPI = await getAPI("http://localhost:5000/english/preview");
+      const enAPI = await getAPI(
+        "https://solvebox.onrender.com/english/preview"
+      );
 
       this.enAPI = enAPI;
 
-      const srAPI = await getAPI("http://localhost:5000/srpski/preview");
+      const srAPI = await getAPI(
+        "https://solvebox.onrender.com/srpski/preview"
+      );
 
       this.srAPI = srAPI;
 

@@ -28,13 +28,13 @@ export const Controller = {
 
     try {
       const enAPI = await getAPI(
-        "http://localhost:5000/english?name=" + enQuery
+        "https://solvebox.onrender.com/english?name=" + enQuery
       );
 
       this.enAPI = enAPI;
 
       const srAPI = await getAPI(
-        "http://localhost:5000/srpski?name=" + srQuery
+        "https://solvebox.onrender.com/srpski?name=" + srQuery
       );
 
       this.srAPI = srAPI;
