@@ -1,12 +1,13 @@
 import { handleUnderlineHover } from "../../general_view.js";
-import { allowLangChange } from "../../language.js";
+import { allowLangChange, getLang } from "../../language.js";
 import { getAPI } from "../api.js";
 import { Model } from "./model.js";
 import { View } from "./view.js";
 
+const lang = getLang();
+
 export const Controller = {
   enAPI: null,
-  srAPI: null,
 
   async init() {
     handleUnderlineHover();
@@ -22,19 +23,29 @@ export const Controller = {
     href = href.split("/").pop();
     href = href.slice(0, href.indexOf("."));
 
-    const currentPuzzle = Model.domen[href];
+    const enQuery = Model.enQuery[href];
+    const srQuery = Model.srQuery[href];
 
     try {
-      const api = await getAPI("./assets/api.json");
-      console.log(this.API);
-      this.enAPI = api.puzzles?.english[currentPuzzle];
-      this.srAPI = api.puzzles?.srpski[currentPuzzle];
+      const enAPI = await getAPI(
+        "http://localhost:5000/english?name=" + enQuery
+      );
 
-      console.log(api);
+      this.enAPI = enAPI;
+
+      const srAPI = await getAPI(
+        "http://localhost:5000/srpski?name=" + srQuery
+      );
+
+      this.srAPI = srAPI;
+
       document.querySelectorAll(".loader").forEach((e) => e.remove());
     } catch (error) {
-      console.error("Failed to initialize API:", error);
+      window.location.href = "/SolveBox/src/error.html";
     }
+
+    if (lang === "srpski") document.title = this.srAPI?.name;
+    else document.title = this.enAPI?.name;
 
     const tips = document.querySelector(".tips");
     this.enAPI?.content?.tips?.forEach((t, index) => {

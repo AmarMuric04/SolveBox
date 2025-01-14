@@ -18,9 +18,14 @@ export const Controller = {
     });
 
     try {
-      const api = await getAPI("./assets/api.json");
-      this.enAPI = api.puzzles.english;
-      this.srAPI = api.puzzles.srpski;
+      const enAPI = await getAPI("http://localhost:5000/english/preview");
+
+      this.enAPI = enAPI;
+
+      const srAPI = await getAPI("http://localhost:5000/srpski/preview");
+
+      this.srAPI = srAPI;
+
       document.querySelectorAll(".loader").forEach((e) => e.remove());
     } catch (error) {
       console.error("Failed to initialize API: ", error);

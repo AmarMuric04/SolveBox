@@ -13,7 +13,7 @@ export const View = {
 
       const mainTitle = document.createElement("h1");
       mainTitle.classList =
-        "pl-16 px-2 background z-50 relative text-xl font-bold";
+        "pl-16 px-2 background z450 relative text-xl font-bold";
       mainTitle.textContent = transformText(key);
       mainTitle.setAttribute("data-english", transformText(key));
       mainTitle.setAttribute("data-srpski", transformText(sr[index][0]));
@@ -108,7 +108,8 @@ export const View = {
         text.setAttribute("data-srpski", srValue.title);
 
         const link = document.createElement("a");
-        link.setAttribute("href", value.link);
+        link.setAttribute("href", value.url);
+        link.setAttribute("target", "_blank");
 
         const button = document.createElement("button");
         button.classList =
