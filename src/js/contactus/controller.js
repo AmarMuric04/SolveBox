@@ -5,8 +5,11 @@ import { loader } from "../general_view.js";
 import { View } from "./view.js";
 import { allowLangChange, getLang } from "../language.js";
 
-const lang = getLang();
+let lang = localStorage.getItem("SolveBox-current-language");
 
+window.addEventListener("localStorageChange", (event) => {
+  lang = event.newValue;
+});
 export const Controller = {
   handleSubmitReview(inputs, form) {
     const emailDoc = document.getElementById("review-email");
