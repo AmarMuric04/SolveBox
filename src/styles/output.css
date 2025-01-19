@@ -3397,6 +3397,10 @@ body::-webkit-scrollbar-thumb {
     padding-left: 0px;
   }
 
+  .lg\:pl-4{
+    padding-left: 1rem;
+  }
+
   .lg\:text-start{
     text-align: start;
   }
