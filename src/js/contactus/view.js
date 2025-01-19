@@ -16,8 +16,12 @@ export const View = {
   showError(doc, errorMsg, errorMsgSr) {
     doc.nextElementSibling.classList.replace("opacity-0", "opacity-100");
     doc.nextElementSibling.querySelector("span").textContent = errorMsg;
-    doc.setAttribute("data-english", errorMsg);
-    doc.setAttribute("data-srpski", errorMsgSr);
+    doc.nextElementSibling
+      .querySelector("span")
+      .setAttribute("data-english", errorMsg);
+    doc.nextElementSibling
+      .querySelector("span")
+      .setAttribute("data-srpski", errorMsgSr);
   },
 
   removeError(doc) {
