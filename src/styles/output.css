@@ -1691,6 +1691,10 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
+.bg-opacity-5{
+  --tw-bg-opacity: 0.05;
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
@@ -3648,6 +3652,10 @@ body::-webkit-scrollbar-thumb {
 
   .xl\:justify-end{
     justify-content: flex-end;
+  }
+
+  .xl\:gap-6{
+    gap: 1.5rem;
   }
 
   .xl\:rounded-none{
