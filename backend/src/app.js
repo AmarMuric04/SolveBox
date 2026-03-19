@@ -8,7 +8,7 @@ app.use(express.json());
 
 const SUBSCRIBERS_FILE = path.join(__dirname, "data", "subscribers.json");
 
-app.use((req, res, next) => {
+app.use((_req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -19,9 +19,17 @@ app.use((req, res, next) => {
 });
 
 const puzzles = {
-  english: require("./data/english"),
-  srpski: require("./data/srpski"),
+  english: require("./data/english.json"),
+  srpski: require("./data/srpski.json"),
 };
+
+const accounts = require("./data/accounts.json");
+const reviews = require("./data/reviews.json");
+const apiData = require("./data/api.json");
+
+app.get("/accounts", (_req, res) => res.json(accounts));
+app.get("/reviews", (_req, res) => res.json(reviews));
+app.get("/api-data", (_req, res) => res.json(apiData));
 
 app.get("/english/preview", (req, res) => {
   const { name } = req.query;

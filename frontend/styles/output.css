@@ -1517,6 +1517,16 @@ video {
   border-top-right-radius: 0.75rem;
 }
 
+.rounded-l-\[0\.75rem\]{
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
+.rounded-r-\[0\.75rem\]{
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
 .border-2{
   border-width: 2px;
 }
@@ -1685,6 +1695,10 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-white\/10{
+  background-color: rgb(255 255 255 / 0.1);
 }
 
 .bg-opacity-20{
