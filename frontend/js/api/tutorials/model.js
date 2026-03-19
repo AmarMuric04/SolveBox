@@ -9,7 +9,7 @@ export const Model = {
     logic: "Logic Grid Puzzles",
   },
   srQuery: {
-    rubiks_cube: "Рубикова кocка",
+    rubiks_cube: "Рубикова коцка",
     sudoku: "Судоку",
     crossword: "Кросворд пазл",
     jigsaw: "Слагалица",
