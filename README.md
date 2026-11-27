@@ -13,8 +13,10 @@ solvers, timers and communities.
 - Guides for seven puzzles: Rubik's Cube, Sudoku, crosswords, jigsaw puzzles,
   the Tower of Hanoi, the 15 puzzle and logic grid puzzles.
 - English and Serbian (Cyrillic), switchable on every page.
-- Twelve colour themes, remembered between visits.
-- Newsletter sign-up, reviews on the home page, and a contact form.
+- Thirteen colour themes, remembered between visits.
+- Newsletter sign-up in every page footer and on the newsletter page, and a
+  feedback form on the contact page. The feedback form is a demo: it shows
+  your review on a thank-you page but does not send it anywhere.
 - Sign in and sign up. This is a demo: the backend checks its own accounts
   (bcrypt hashes, never sent to the browser), and accounts made with sign-up
   are kept in `localStorage`. The live backend has one demo account:
@@ -71,7 +73,7 @@ with a bcrypt hash. Optional: `PORT`, `ACCOUNTS_FILE`, `SUBSCRIBERS_FILE`.
 | --- | --- | --- |
 | GET | `/english`, `/srpski` | All puzzles, or one with `?name=` |
 | GET | `/english/preview`, `/srpski/preview` | Puzzle summaries, optionally `?name=` |
-| GET | `/reviews` | Reviews shown on the home page |
+| GET | `/reviews` | Sample reviews (no longer shown on the site) |
 | GET | `/accounts/exists?email=` | `{ "exists": true | false }`, used by sign-up |
 | POST | `/auth/signin` | Checks `{ "email", "password" }`; `{ "email" }` or 401 |
 | GET | `/api-data` | Content for the API page |
