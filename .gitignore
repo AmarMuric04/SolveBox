@@ -4,3 +4,7 @@ package-lock.json
 .env.*
 .vercel
 .DS_Store
+
+# Personal data; the backend falls back to the *.example.json files
+backend/src/data/accounts.json
+backend/src/data/subscribers.json
