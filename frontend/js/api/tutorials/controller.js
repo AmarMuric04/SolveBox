@@ -45,7 +45,7 @@ export const Controller = {
 
       document.querySelectorAll(".loader").forEach((e) => e.remove());
     } catch (error) {
-      window.location.href = "/SolveBox/src/error.html";
+      window.location.href = "./error.html";
     }
 
     if (lang === "srpski") document.title = this.srAPI?.name;
@@ -196,7 +196,7 @@ export const Controller = {
         key1.setAttribute("data-srpski", "Популарност:");
 
         const value1 = document.createElement("p");
-        value1.textContent = value.popularity + "⭐";
+        value1.textContent = value.popularity + " / 5";
 
         wrapper1.append(key1);
         wrapper1.append(value1);

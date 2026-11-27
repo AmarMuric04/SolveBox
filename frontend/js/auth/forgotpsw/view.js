@@ -27,23 +27,23 @@ export const View = {
 
       title.textContent =
         lang === "english"
-          ? "🎉 New password, new you!"
-          : "🎉 Нова лозинка, нови ти!";
-      title.setAttribute("data-english", "🎉 New password, new you!");
-      title.setAttribute("data-srpski", "🎉 Нова лозинка, нови ти!");
+          ? "Your password is changed"
+          : "Лозинка је промењена";
+      title.setAttribute("data-english", "Your password is changed");
+      title.setAttribute("data-srpski", "Лозинка је промењена");
 
       title.classList.remove("lg:text-start");
       text.textContent =
         lang === "english"
-          ? "Ready to continue solving the unsolvable? Let’s go!"
-          : "Спреман за наставак решавања нерешивог? Хајде да кренемо!";
+          ? "You can sign in with the new password now."
+          : "Сада се можете пријавити новом лозинком.";
       text.setAttribute(
         "data-english",
-        "Ready to continue solving the unsolvable? Let’s go!"
+        "You can sign in with the new password now."
       );
       text.setAttribute(
         "data-srpski",
-        "Спреман за наставак решавања нерешивог? Хајде да кренемо!"
+        "Сада се можете пријавити новом лозинком."
       );
     }, 200);
 

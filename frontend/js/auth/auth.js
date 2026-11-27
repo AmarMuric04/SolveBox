@@ -59,23 +59,23 @@ export function displayAuthFlow(isSignin) {
 
     if (isSignin) {
       if (lang === "english") {
-        title.textContent = "🎉 Welcome Back, Puzzle Master!";
+        title.textContent = "You are signed in";
         text.textContent =
-          "Ready to tackle more brain-busting challenges? Let’s dive in and solve the unsolvable!";
+          "Pick up where you left off: the guides are under Categories.";
       } else {
-        title.textContent = "🎉 Добродошли назад, Мастер Загонетки!";
+        title.textContent = "Пријављени сте";
         text.textContent =
-          "Спремни сте за нове изазове? Хајде да решавамо оно што је неиздрживо!";
+          "Наставите где сте стали: водичи су под Категоријама.";
       }
     } else {
       if (lang === "english") {
-        title.textContent = "🔓 Access Granted!";
+        title.textContent = "Your account is ready";
         text.textContent =
-          "Welcome to the world of logic, riddles, and solutions. Let’s solve the unsolvable!";
+          "It is saved in this browser. The guides are under Categories.";
       } else {
-        title.textContent = "🔓 Приступ одобрен!";
+        title.textContent = "Ваш налог је спреман";
         text.textContent =
-          "Добродошли у свет логике, загонетки и решења. Хајде да решавамо оно што је неиздрживо!";
+          "Сачуван је у овом прегледачу. Водичи су под Категоријама.";
       }
     }
 

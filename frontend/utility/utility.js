@@ -54,7 +54,6 @@ export function updateButtonStatus(
   disable = false
 ) {
   button.innerHTML = text;
-  console.log(button);
 
   /* For enabling just call it again with disabled -> true */
 

@@ -1,6 +1,5 @@
-import { Controller } from "./controller.js";
+import { handleUnderlineHover } from "../general_view.js";
 
-localStorage.setItem("yourKey", "newValue");
 document.addEventListener("DOMContentLoaded", () => {
-  Controller.init();
+  handleUnderlineHover();
 });

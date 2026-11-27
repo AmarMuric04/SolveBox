@@ -106,8 +106,8 @@ export const Controller = {
 
     setTimeout(() => {
       lang === "english"
-        ? Utility.updateButtonStatus(submitBtn, "Submitted 😀")
-        : Utility.updateButtonStatus(submitBtn, "Послато 😀");
+        ? Utility.updateButtonStatus(submitBtn, "Submitted")
+        : Utility.updateButtonStatus(submitBtn, "Послато");
     }, 3000);
     setTimeout(() => {
       lang === "english"
@@ -177,7 +177,7 @@ export const Controller = {
 
     Utility.updateButtonStatus(subBtn, "Subscribing... " + loader(), true);
     setTimeout(() => {
-      Utility.updateButtonStatus(subBtn, "Subscribed 😀");
+      Utility.updateButtonStatus(subBtn, "Subscribed");
     }, 3000);
     setTimeout(() => {
       Utility.updateButtonStatus(subBtn, "Subscribe");
@@ -219,7 +219,7 @@ export const Controller = {
 
     const newsForm = document.getElementById("news-form");
 
-    newsForm.addEventListener("submit", (e) => {
+    newsForm?.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const inputs = Utility.retrieveFormData(e);

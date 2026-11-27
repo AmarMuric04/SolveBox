@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   nameDoc.textContent = session["review-first-name"]
     .concat(" ")
     .concat(session["review-last-name"]);
-  professionDoc.textContent = "Absolute genius";
+  professionDoc.textContent =
+    localStorage.getItem("SolveBox-current-language") === "srpski"
+      ? "Послато преко контакт форме"
+      : "Sent through the contact form";
   descDoc.textContent = session["review"];
 });

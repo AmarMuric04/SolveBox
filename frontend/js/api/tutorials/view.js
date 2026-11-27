@@ -94,10 +94,11 @@ export const View = {
         "child w-full flex flex-col justify-between p-4 bg-white min-w-[49%] md:w-[49%] md:max-w-[49%]";
 
       const title = document.createElement("p");
-      title.classList = "noto text1 uppercase";
-      title.textContent = value.type;
-      title.setAttribute("data-english", value.type);
-      title.setAttribute("data-srpski", srValue.type);
+      title.classList = "noto text1";
+      const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+      title.textContent = cap(value.type);
+      title.setAttribute("data-english", cap(value.type));
+      title.setAttribute("data-srpski", cap(srValue.type));
 
       const text = document.createElement("p");
       text.classList = "ml-4 text-gray-600 my-4";
@@ -114,9 +115,9 @@ export const View = {
         const button = document.createElement("button");
         button.classList =
           "background text-white rounded-[2rem] px-4 py-2 hover:rounded-none transition-all";
-        button.textContent = "Go to Tutorial";
-        button.setAttribute("data-english", "Go to Tutorial");
-        button.setAttribute("data-srpski", "Иди до Туториала");
+        button.textContent = "Open tutorial";
+        button.setAttribute("data-english", "Open tutorial");
+        button.setAttribute("data-srpski", "Отвори туторијал");
 
         link.append(button);
         container.prepend(link);
