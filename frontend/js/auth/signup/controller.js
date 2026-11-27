@@ -82,11 +82,8 @@ export const Controller = {
       Validation.invalidateInput(emailDoc);
       Model.removeClassOnClick(emailDoc, "error-input");
       if (lang === "english")
-        Validation.displayErrorMessage(
-          "JSON account. Password: " + JSONUser.psw
-        );
-      else
-        Validation.displayErrorMessage("ЈСОН профил. Лозинка: " + JSONUser.psw);
+        Validation.displayErrorMessage("Email already taken");
+      else Validation.displayErrorMessage("Имејл већ заузет");
       invalidInput = true;
     }
     if (invalidInput) return;

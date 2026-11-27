@@ -85,43 +85,32 @@ export function displayAuthFlow(isSignin) {
   }, 3200);
 }
 
-/* This function would be used instead of findStorageUser, but since you can't edit the
-password of the json users this function simply wouldn't work. */
-export async function findAccount(email) {
+const API = "https://solvebox.onrender.com";
+
+// Server-side demo accounts: the backend only says whether an email exists and
+// checks passwords itself, so no password data reaches the browser.
+async function serverAccountExists(email) {
   try {
-    const jsonUsersRes = await fetch("https://solvebox.onrender.com/accounts");
-
-    if (!jsonUsersRes.ok) {
-      throw new Error("Failed to fetch users.");
-    }
-
-    const jsonUsers = await jsonUsersRes.json();
-    const users = [...jsonUsers, ...storageAccounts];
-
-    const user = users.find((user) => user.email === email);
-    return user;
+    const res = await fetch(
+      `${API}/accounts/exists?email=${encodeURIComponent(email)}`
+    );
+    if (!res.ok) throw new Error("Failed to check the account.");
+    const { exists } = await res.json();
+    return exists;
   } catch (error) {
     console.error(error);
     return false;
   }
 }
 
+export async function findAccount(email) {
+  const storageUser = findStorageUser(email);
+  if (storageUser) return storageUser;
+  return (await serverAccountExists(email)) ? { email } : undefined;
+}
+
 export async function findJSONUser(email) {
-  try {
-    const jsonUsersRes = await fetch("https://solvebox.onrender.com/accounts");
-
-    if (!jsonUsersRes.ok) {
-      throw new Error("Failed to fetch users.");
-    }
-
-    const jsonUsers = await jsonUsersRes.json();
-
-    const user = jsonUsers.find((user) => user.email === email);
-    return user;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
+  return (await serverAccountExists(email)) ? { email } : false;
 }
 
 export function findStorageUser(email) {
@@ -130,30 +119,23 @@ export function findStorageUser(email) {
 }
 
 export async function correctCredentials(inputs) {
+  // Accounts made with sign-up live in this browser's localStorage.
+  const hashedPsw = await hashPassword(inputs.password);
+  const storageUser = storageAccounts.find(
+    (user) => user.email === inputs.email && user.password === hashedPsw
+  );
+  if (storageUser) return { user: storageUser, foundUser: true };
+
   try {
-    const accountsResponse = await fetch("https://solvebox.onrender.com/accounts");
-    const jsonAccounts = await accountsResponse.json();
-    const users = [...jsonAccounts, ...storageAccounts];
-
-    const hashedPsw = await hashPassword(inputs.password);
-    console.log(hashedPsw);
-
-    const user = users.find(
-      (user) => user.email === inputs.email && user.password === hashedPsw
-    );
-
-    if (user) {
-      return {
-        user,
-        foundUser: true,
-      };
-    }
-
-    return {
-      user: null,
-      foundUser: false,
-    };
+    const res = await fetch(`${API}/auth/signin`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: inputs.email, password: inputs.password }),
+    });
+    if (res.ok) return { user: await res.json(), foundUser: true };
   } catch (error) {
     console.error(error);
   }
+
+  return { user: null, foundUser: false };
 }
